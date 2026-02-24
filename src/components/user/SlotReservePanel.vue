@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import {computed, h, onBeforeUnmount, reactive, ref, watch} from 'vue';
-import {type DataTableColumns, NButton, useMessage} from 'naive-ui';
-import type {ReserveResultVO, TimeSlot} from '../../types/api';
+import { computed, h, onBeforeUnmount, reactive, ref, watch } from 'vue';
+import { type DataTableColumns, NButton, useMessage } from 'naive-ui';
+import type { ReserveResultVO, TimeSlot } from '../../types/api';
 import * as browseApi from '../../api/browse';
 import * as reserveApi from '../../api/reserve';
 import AppEmptyState from '../common/AppEmptyState.vue';
@@ -30,7 +30,7 @@ watch(
             query.sessionId = value;
         }
     },
-    {immediate: true},
+    { immediate: true },
 );
 
 const loading = ref(false);
@@ -71,12 +71,12 @@ const reserveResultText = computed(() => {
 });
 
 const columns: DataTableColumns<TimeSlot> = [
-    {title: '槽位ID', key: 'id', width: 90},
-    {title: '日期', key: 'slotDate', width: 130},
-    {title: '开始', key: 'startTime', width: 110},
-    {title: '结束', key: 'endTime', width: 110},
-    {title: '球场', key: 'courtId', width: 90},
-    {title: '场次', key: 'sessionId', width: 90},
+    { title: '槽位ID', key: 'id', width: 90 },
+    { title: '日期', key: 'slotDate', width: 130 },
+    { title: '开始', key: 'startTime', width: 110 },
+    { title: '结束', key: 'endTime', width: 110 },
+    { title: '球场', key: 'courtId', width: 90 },
+    { title: '场次', key: 'sessionId', width: 90 },
     {
         title: '操作',
         key: 'actions',
@@ -89,7 +89,7 @@ const columns: DataTableColumns<TimeSlot> = [
                     type: 'primary',
                     onClick: () => startReserve(row),
                 },
-                {default: () => '预约'},
+                { default: () => '预约' },
             ),
     },
 ];
@@ -193,29 +193,20 @@ onBeforeUnmount(() => {
                 </div>
             </template>
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-                <n-input-number v-model:value="query.sessionId" class="w-full" clearable placeholder="场次ID（必填）"/>
-                <n-input v-model:value="query.dateLowerBound" placeholder="日期下限 2026-02-24"/>
-                <n-input v-model:value="query.dateUpperBound" placeholder="日期上限"/>
-                <n-input v-model:value="query.courtIdsText" placeholder="球场ID：1,2,3"/>
-                <n-input v-model:value="query.startTimeLowerBound" placeholder="开始时间下限"/>
-                <n-input v-model:value="query.startTimeUpperBound" placeholder="开始时间上限"/>
-                <n-input v-model:value="query.endTimeLowerBound" placeholder="结束时间下限"/>
-                <n-input v-model:value="query.endTimeUpperBound" placeholder="结束时间上限"/>
+                <n-input-number v-model:value="query.sessionId" class="w-full" clearable placeholder="场次ID（必填）" />
+                <n-input v-model:value="query.dateLowerBound" placeholder="日期下限 2026-02-24" />
+                <n-input v-model:value="query.dateUpperBound" placeholder="日期上限" />
+                <n-input v-model:value="query.courtIdsText" placeholder="球场ID：1,2,3" />
+                <n-input v-model:value="query.startTimeLowerBound" placeholder="开始时间下限" />
+                <n-input v-model:value="query.startTimeUpperBound" placeholder="开始时间上限" />
+                <n-input v-model:value="query.endTimeLowerBound" placeholder="结束时间下限" />
+                <n-input v-model:value="query.endTimeUpperBound" placeholder="结束时间上限" />
             </div>
             <div class="mt-3 flex flex-wrap gap-2">
                 <n-button :loading="loading" class="w-full sm:w-auto" type="primary" @click="loadSlots">查询时间槽
                 </n-button>
             </div>
-            <n-data-table
-                :columns="columns"
-                :data="slots"
-                :loading="loading"
-                :pagination="{ pageSize: 8 }"
-                :scroll-x="860"
-                :single-line="false"
-                class="mobile-table mt-4"
-                style="--table-min-width: 860px"
-            />
+            <n-data-table :columns="columns" :data="slots" :loading="loading" :pagination="{ pageSize: 8 }" :scroll-x="860" :single-line="false" class="mobile-table mt-4" style="--table-min-width: 860px" />
         </n-card>
 
         <n-card :bordered="false" class="panel-card panel-switch">
@@ -226,12 +217,11 @@ onBeforeUnmount(() => {
                 </div>
             </template>
             <div class="flex flex-col gap-3 lg:flex-row lg:items-center">
-                <n-input-number v-model:value="detailId" class="w-full" clearable placeholder="槽位ID"/>
+                <n-input-number v-model:value="detailId" class="w-full" clearable placeholder="槽位ID" />
                 <n-button class="w-full lg:w-auto" @click="loadSlotById">查询详情</n-button>
             </div>
 
-            <AppEmptyState v-if="!detail" description="请输入槽位编号并点击“查询详情”" hint="建议先在上方筛选到目标场次"
-                           title="还没有时间槽详情"/>
+            <AppEmptyState v-if="!detail" description="请输入槽位编号并点击“查询详情”" hint="建议先在上方筛选到目标场次" title="还没有时间槽详情" />
             <n-descriptions v-else :column="1" bordered class="mt-3" label-placement="left">
                 <n-descriptions-item label="槽位ID">{{ detail.id }}</n-descriptions-item>
                 <n-descriptions-item label="日期">{{ detail.slotDate }}</n-descriptions-item>
@@ -244,4 +234,15 @@ onBeforeUnmount(() => {
         <n-card :bordered="false" class="panel-card panel-switch">
             <template #header>
                 <div>
-                    <div class="text-base font-semibold t
+                    <div class="text-base font-semibold text-slate-800">预约结果</div>
+                    <div class="text-xs text-slate-500">显示预约处理状态和结果</div>
+                </div>
+            </template>
+            <n-alert :type="reserveResultType" :title="reserveResultText" class="mb-3" show-icon />
+            <div v-if="currentTraceId" class="flex flex-wrap gap-2">
+                <n-button @click="queryReserveResult">手动刷新结果</n-button>
+                <n-button v-if="reserveResult && reserveResult.status === 'PENDING'" @click="startPolling">自动轮询结果</n-button>
+            </div>
+        </n-card>
+    </div>
+</template>
