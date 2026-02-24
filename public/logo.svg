@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景：圆形，充满活力的绿色 -->
+  <circle cx="256" cy="256" r="256" fill="#2ecc71"/>
+  
+  <!-- 球拍：位于后方 -->
+  <g transform="translate(256, 256) rotate(-45) translate(-256, -256)">
+    <!-- 拍框 -->
+    <circle cx="256" cy="256" r="140" fill="none" stroke="#ffffff" stroke-width="24"/>
+    <!-- 拍线 -->
+    <path d="M116 256 H396 M256 116 V396" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+    <path d="M156 156 L356 356 M356 156 L156 356" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+    <!-- 拍柄 -->
+    <rect x="244" y="380" width="24" height="100" rx="12" fill="#ffffff"/>
+  </g>
+
+  <!-- 羽毛球：位于前方，增加层次感 -->
+  <g transform="translate(256, 256) rotate(15) translate(-256, -256)">
+    <!-- 羽毛部分 (扇形) -->
+    <path d="M256 140 C180 140 140 220 140 280 C140 320 200 340 256 340 C312 340 372 320 372 280 C372 220 332 140 256 140 Z" fill="#ffffff"/>
+    <!-- 羽毛纹理 (简单的几条线表示动感) -->
+    <path d="M256 160 V320 M200 180 L256 320 M312 180 L256 320" stroke="#2ecc71" stroke-width="8" stroke-linecap="round"/>
+    <!-- 球头 (半圆) -->
+    <circle cx="256" cy="340" r="30" fill="#ffffff"/>
+    <!-- 球头底部细节 -->
+    <path d="M236 350 Q256 365 276 350" stroke="#2ecc71" stroke-width="6" fill="none"/>
+  </g>
+</svg>
