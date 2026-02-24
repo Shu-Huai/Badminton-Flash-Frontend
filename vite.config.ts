@@ -7,7 +7,7 @@ const proxyTargets = ['auth', 'user', 'browse', 'reserve', 'pay', 'admin'];
 export default defineConfig({
     plugins: [vue(), tailwindcss()],
     server: {
-        port: 50096,
+        port: 10096,
         proxy: Object.fromEntries(
             proxyTargets.map((name) => [
                 `/${name}`,
