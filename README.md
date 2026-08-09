@@ -63,7 +63,8 @@ npm run dev
 - 目标后端：`http://localhost:25001`
 - 代理前缀：`/auth`、`/user`、`/browse`、`/reserve`、`/pay`、`/admin`
 
-首次运行前，将 `.env.development.sample` 复制为 `.env.development`，然后执行 `npm run dev`。如需调整后端地址，修改 `.env.development`：
+首次运行前，将 `.env.development.sample` 复制为 `.env.development`，然后执行 `npm run dev`。如需调整后端地址，修改
+`.env.development`：
 
 ```bash
 VITE_API_BASE_URL=http://localhost:25001
