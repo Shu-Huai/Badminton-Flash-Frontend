@@ -58,15 +58,16 @@ npm run dev
 - `VITE_API_BASE_URL` 未设置时：使用相对路径（如 `/auth/login`），在开发模式下由 Vite 代理转发。
 - `VITE_API_BASE_URL` 已设置时：直接请求该地址（可用于联调远程后端或生产部署）。
 
-开发环境默认代理（`vite.config.ts`）：
+开发环境默认代理（`.env.development.sample`）：
 
 - 目标后端：`http://localhost:25001`
 - 代理前缀：`/auth`、`/user`、`/browse`、`/reserve`、`/pay`、`/admin`
 
-可在 `frontend/.env.local` 中配置：
+首次运行前，将 `.env.development.sample` 复制为 `.env.development`，然后执行 `npm run dev`。如需调整后端地址，修改 `.env.development`：
 
 ```bash
 VITE_API_BASE_URL=http://localhost:25001
+VITE_DEV_PROXY_TARGET=http://localhost:25001
 ```
 
 ## 构建与预览
